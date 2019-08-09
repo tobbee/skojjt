@@ -442,6 +442,7 @@ class UserPrefs(ndb.Model):
 	@staticmethod
 	def current():
 		cu = users.get_current_user()
+		logging.warning("Current user email: %s", cu.email())
 		return UserPrefs.getorcreate(cu)
 	
 	def attemptAutoGroupAccess(self):
